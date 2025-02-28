@@ -1,0 +1,103 @@
+use('mongo_1');
+
+//task 1
+db.movies.find({
+    releaseYear: 2015
+});
+
+//task 2
+db.movies.find({
+    ratingImdb: {$lt:6.5}
+});
+
+//task 3
+db.movies.find({
+    genres:{$in:['Horror']}
+});
+
+//task 4
+db.movies.find({
+        'director.age':{$gt:50}
+    }
+);
+
+//task 5
+db.movies.find({
+    'mainActors.name':{$regex:'^Chris',$options:'i'} 
+});
+
+//task 6
+db.movies.find({
+    releaseYear:{$gt:2005},
+    ratingImdb:{$gt:7.5}
+}
+);
+
+//task 7
+db.movies.find(
+    {
+        // $or:[{genres:'Comedy'},{genres:'Animation'}]
+        genres:{$in:['Comedy','Animation']}
+    }
+);
+
+//task 8
+db.movies.find({
+    $and:[{genres:{$eq:'Science Fiction'}, genres:{$nin:['Action']}}]
+});
+
+//task 9
+db.movies.find({
+    $or:[{'director.name':"Christopher Nolan"},{'director.name':"James Cameron"}],
+    ratingImdb:{$gte:8}
+});
+
+//task 10
+db.movies.find({
+    $or:[{genres:{$nin:['Documentary']}},{genres:{$nin:['Action']}}]
+});
+
+//task 11
+db.movies.find({
+    genres:{$size:2}
+});
+
+//task 12
+db.movies.find({
+    'genres.3':{$exists:true}
+});
+
+//task 13
+db.movies.find({
+   'mainActors.0.name':'Leonardo DiCaprio'
+});
+
+//task 13
+db.movies.find({
+'mainActors.name':{$regex:'(son|man)$',$options:'i'}
+});
+
+//task 14
+db.movies.find({
+    $and:[
+       {releaseYear:{$gt:2000}},
+       {genres:'Crime'},
+       {'director.name':{$ne:'Christopher Nolan'}}
+    ]
+});
+
+//task 15
+db.movies.find({
+    ratingImdb:{$gte:8, $lte:8.5},
+    'director.nationality':{$ne:'American'},
+    genres:'Drama'
+});
+
+//task 16
+db.movies.find({
+$and:[
+    {genres:'Crime'},
+    {'mainActors.name':{$ne:'Leonardo DiCaprio'}},
+    {ratingImdb:{$gte:8, $lte:9}}
+]
+});

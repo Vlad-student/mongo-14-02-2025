@@ -1,0 +1,5 @@
+use('mongo_1');
+db.gamers.find({
+    level:{$lte:20},
+});
+

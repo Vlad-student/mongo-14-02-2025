@@ -1,0 +1,37 @@
+use('mongo_1');
+
+//task 1
+db.movies.findOneAndUpdate(
+    {title:"Inception"},
+   { $set:{ratingImdb:9.1}},
+{returnDocument:'after'}
+);
+
+//task 2
+db.movies.findOneAndUpdate(
+    {title:'Fight Club'},
+    {$set:{'director.age':67}},
+    {returnDocument:'after'}
+);
+
+//task 3
+db.movies.findOneAndUpdate(
+    {genres:'Fantasy'},
+    {$set:{budget:10}},
+    {returnDocument:'after'}
+);
+
+//task 4
+db.movies.updateMany(
+    {},
+    {$rename:{ratingImdb:'IMDB'}},
+);
+
+//task 5
+db.movies.updateMany(
+{releaseYear:{$lt:1995}},
+{$set:{isRemake:false}},
+);
+
+//task 6
+

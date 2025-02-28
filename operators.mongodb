@@ -1,0 +1,5 @@
+use('mongo_1');
+
+db.movies.find({
+    ratingImdb:{$gte:8.0, $lte:8.5}
+});

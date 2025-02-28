@@ -1,0 +1,45 @@
+use('mongo_1');
+db.games.insertMany(
+    [
+        {
+          title: 'The Witcher 3: Wild Hunt',
+          release: 2015,
+          platforms: ['PC', 'PS', 'Xbox', 'Switch'],
+          isChildren: false,
+          genre: 'RPG',
+          developer: { country: 'Poland', name: 'CD Projekt Red' }
+        },
+        {
+          title: 'Cyberpunk 2077',
+          release: 2020,
+          platforms: ['PC', 'PS', 'Xbox'],
+          isChildren: false,
+          genre: 'RPG',
+          developer: { country: 'Poland', name: 'CD Projekt Red' }
+        },
+        {
+          title: 'Hollow Knight',
+          release: 2017,
+          platforms: ['PC', 'PS', 'Xbox', 'Switch'],
+          isChildren: true,
+          genre: 'metroidvania',
+          developer: { country: 'Australia', name: 'Team Cherry' }
+        },
+        {
+          title: 'Red Dead Redemption 2',
+          release: 2018,
+          platforms: ['PC', 'PS', 'Xbox'],
+          isChildren: false,
+          genre: 'open-world',
+          developer: { country: 'USA', name: 'Rockstar Games' }
+        },
+        {
+          title: 'Minecraft',
+          release: 2011,
+          platforms: ['PC', 'PS', 'Xbox', 'Switch', 'Mobile'],
+          isChildren: true,
+          genre: 'sandbox',
+          developer: { country: 'Sweden', name: 'Mojang Studios' }
+        }
+      ]
+);

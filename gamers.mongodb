@@ -1,0 +1,12 @@
+use('mongo_1');
+db.gamers.insertMany(
+    [
+        {login: 'Bob',  game: 'Minecraft', level:23 },
+        { login: "PlayerOne", game: "CyberStrike", level: 15 },
+        { login: "ShadowNinja", game: "Stealth Ops", level: 23 },
+        { login: "DragonSlayer", game: "Fantasy Quest", level: 50 },
+        { login: "SpeedDemon", game: "Racing Legends", level: 30 },
+        { login: "SniperWolf", game: "Warzone Elite", level: 17 }
+      ]
+)
+

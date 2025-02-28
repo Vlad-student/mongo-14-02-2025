@@ -1,0 +1,6 @@
+use('mongo_1');
+// $ regex
+
+db.movies.find({
+title:{$regex:'the', $options:'i' }
+})
