@@ -34,4 +34,70 @@ db.movies.updateMany(
 );
 
 //task 6
+db.movies.updateMany(
+    {IMDB:{$gt:9.1}},
+    {$unset:{isAdult:''}}
+);
 
+//task 7
+db.movies.updateMany(
+    {},
+    {$inc:{IMDB:0.1}}
+);
+
+// task 8
+db.movies.updateMany(
+    {budget:{$exists:true}},
+    {$mul:{budget:2}}
+);
+
+ // task 9
+ db.movies.updateMany(
+    {isAdult:{$exists:false}},
+    {$inc:{releaseYear:-2}}
+ );
+
+ //task 10
+ db.movies.updateMany(
+    {'director.nationality':"American"},
+    {$inc:{'director.age':-1}}
+ );
+
+ //task 11
+ db.movies.findOneAndUpdate(
+    {'mainActors.name':{$regex:'^Leo', $options:'i'}},
+    {$unset:{'mainActors.2':''}},
+    {returnDocument:'after'}
+ );
+
+ //task 12
+ db.movies.updateMany(
+    {genres:{$size:4}},
+    {$mul:{IMDB:1.1}}
+ );
+
+ //task 13
+ db.movies.findOneAndUpdate(
+    {'genres.2':{$exists:false}},
+    {$inc:{releaseYear:-1}},
+    {returnDocument:'after'}
+ );
+
+ //task 14
+ db.movies.updateMany(
+    {'director.name':"Quentin Tarantino"},
+    {$min:{'director.age':64}}
+ );
+
+ //task 15
+ db.movies.updateMany(
+    {$and:[ {genres:'Crime'},
+    {releaseYear:{$gt:2000}}]},
+    {$inc:{IMDB:2}}
+ );
+
+ //task 16
+db.movies.updateMany(
+{'mainActors.name':{$regex:'ge$', $options:'i'}},
+{$inc:{IMDB:-0.3}}
+);
