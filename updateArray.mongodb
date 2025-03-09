@@ -1,0 +1,89 @@
+use ('mongo_1');
+
+db.games.updateMany(
+{},
+{$pull:{platforms:'PC'}}
+);
+
+db.games.updateMany(
+    {release:{$gt:2020}},
+    {$addToSet:{platforms:"Switch"}}
+);
+
+db.games.updateMany(
+    {genre:'souls'},
+    {$pull:{platforms:{$ne:'Xbox'}}}
+);
+
+db.movies.findOneAndUpdate(
+    {title:'Interstellar'},
+    {$pull:{genres:'Drama'}},
+    {returnDocument:'after'}
+);
+
+db.movies.findOneAndUpdate(
+    {title:'Inception'},
+    {$push:{mainActors:{ name: "Tom Hardy", role: "Eames" }}},
+    {returnDocument:'after'}
+);
+
+db.movies.updateMany(
+    {releaseYear:{$gte:2010, $lte:2010}},
+    {$pull:{mainActors:1}}
+);
+ 
+db.movies.findOneAndUpdate(
+    {title:'Interstellar'},
+    {$pull:{genres:{$ne:'Fantastic'}}},
+    {returnDocument:'after'}
+);
+
+db.movies.updateMany(
+    {'director.nationality':'American'},
+    {$pop:{genres:-1}}
+);
+
+
+// $push   додає новий елемент у кінець масиву
+db.games.findOneAndUpdate(
+    {title:'Dark Souls III'},
+    {$push:{platforms:'Mobile'}},
+    {returnDocument:'after'}
+);
+
+// $pull   видаляє елемент з масиву
+db.games.findOneAndUpdate(
+    {title:' Dark Souls III'},
+    {$pull:{platforms:'PC'}},
+    {returnDocument:'after'}
+);
+
+//$addToSet   додає елемент у кінець масиву, якщо такого значення в масиві нема 
+db.games.findOneAndUpdate(
+{title:'Dark Souls III'},
+{$addToSet:{platforms:'Xbox'}},
+{returnDocument:'after'}
+);
+
+// $pop   видаляє елемент масиву
+// +1 - end element
+// -1  - first element
+db.games.findOneAndUpdate(
+    {title:'Dark Souls III'},
+    {$pop:{platforms:1}},
+    {returnDocument:'after'}
+);
+
+// $each
+db.games.findOneAndUpdate(
+{title:'Dark Souls III'},
+{$push: {platforms: {$each: ['PC','PS'] }}},
+{returnDocument:'after'}
+);
+
+// $ne  don`t delete something (you delete all element,  except for one which you write)
+db.games.findOneAndUpdate(
+{title:'Dark Souls III'},
+{$pull: { $ne: 'Mobile'}},
+{returnDocument:'after'}
+);

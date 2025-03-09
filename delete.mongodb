@@ -1,0 +1,33 @@
+use('mongo_1');
+
+db.games.deleteOne(
+    {title:'Minecraft'}
+);
+
+//findOneAndDelete (filter, options)
+db.games.findOneAndDelete(
+    {title:'Elden Ring'}
+);
+
+db.games.findOneAndDelete(
+{'developer.country':'Japan'},
+{sort:{releaseYear: -1}}
+);
+
+db.games.findOneAndDelete(
+    {raiting:{$exists:true}, genre:'RPG'},
+{sort:{raiting:-1}}
+);
+
+// deleteMany(filter)
+db.games.deleteMany({
+    $and:[
+        {raiting:{$exists:true}},
+{release:{$gte:2010, $lte:2015}}
+]});
+
+db.games.deleteMany({
+        $and:[ 
+            {isChildren:true},
+{country:{$ne:Australia}}
+        ]});

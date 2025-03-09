@@ -101,3 +101,4 @@ db.movies.updateMany(
 {'mainActors.name':{$regex:'ge$', $options:'i'}},
 {$inc:{IMDB:-0.3}}
 );
+ 
