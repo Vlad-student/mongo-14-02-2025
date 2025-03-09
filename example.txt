@@ -1,0 +1,14 @@
+// {
+//     "firstName": "Alexander",
+//     "lastName": "Kovalenko",
+//     "isMale": true,
+//     "birthYear": 2005,
+//     "address": {
+//         "city": "Kyiv",
+//         "street": "Khreshchatyk",
+//         "houseNumber": 12
+//     },
+//     "rating": 4.7,
+//     "hobbies": ["gaming", "football", "programming", "reading manga"],
+//     "createdAt": "2024-02-17T10:30:00.000Z"
+// }
