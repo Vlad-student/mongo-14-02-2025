@@ -1,0 +1,23 @@
+use('mongo_1');
+
+db.users.insertOne({
+    firstName:'ANto',
+lastName:'Nfjkdfg',
+createdAt: new Date()
+});
+
+// db.users.insertOne({
+// firstName:'Brad',
+// lastName:'Pitt',
+// isMale:true,
+// birthYear:1963,
+// adress:{
+//     city:'dfgdfg',
+//     street:'dfgdfgvb',
+//     houseNumber: 23
+// },
+// rating:4.6,
+// hobbies: ['movies'],
+// status:'bisy',
+// createdAt: new Date()
+// })

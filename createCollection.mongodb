@@ -7,22 +7,24 @@ $jsonSchema: {
 required: [
     'firstName',
      'lastName',
-      'isMale', 
-      'birthYear', 
-      'adress', 
-      'rating',
-      'hobbies'],
+    //   'isMale', 
+    //   'birthYear', 
+    //   'adress', 
+    //   'rating',
+    //   'hobbies',
+    // 'status'],
+],
 properties:{
     firstName:{
         bsonType:'string',
-        pattern:'^[A-Z][a-z][1,31]$',
+        pattern:'^[A-Z][a-z]{1,31}$',
         minLength:4,
 maxLength:32,
 description:'Must be string with length [4-32]'
     },
     lastName:{
         bsonType:'string',
-        pattern:'^[A-Z][a-z][1,31]$',
+        pattern:'^[A-Z][a-z]{1,31}$',
         minLength:2,
 maxLength:32,
 description:'Must be string with length [2-32]'
@@ -34,7 +36,7 @@ description:'Must be string with length [2-32]'
     birthYear:{
      bsonType:'int',
      minimum: 1900,
-     maximim: new Date().getFullYear(),
+     maximum: new Date().getFullYear(),
      description:'Must be number 1900-2025'   
     },
     adress:{
@@ -63,10 +65,25 @@ description:'Must be string with length [2-32]'
     },
     rating:{
         bsonType:'double',
+        minimum:0,
+        maximum:5
 
     },
-    hobbies:{},
-    createdAt:{}
+    hobbies:{
+        bsonType:'string',
+        items: {
+            bsonType:'string'
+        }
+    },
+    status:{
+bsonType:'string',
+enum:['active','sleep', 'busy'],
+description:'Status must be active, sleep or busy'
+    },
+    createdAt:{
+        bsonType:'date',
+        description:'Data registration'
+    }
 }
 }
 }

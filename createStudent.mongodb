@@ -1,0 +1,9 @@
+use('mongo_1');
+
+db.students.insertOne({
+fullName:'Aleks Cat',
+age:23,
+subjects:['math', 'engl'],
+isOnline:true,
+modul:1,
+});
