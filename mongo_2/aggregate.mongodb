@@ -1,0 +1,68 @@
+use ('mongo_2');
+
+// db.products.aggregate([
+//     {
+//         $group: {
+//           _id: '$categoryId',
+//           totalProducts: {
+//             $sum: 1 
+//           }
+//         }
+//     },
+//     {
+//         $lookup: {
+//           from: 'categories',
+//           localField: '_id',
+//           foreignField: '_id',
+//           as: 'category'
+//         }
+//     },
+//     {
+//         $unwind: '$category'
+//     },
+//     {$project: {
+//         _id:0,
+//       totalProducts:1,
+//       titleCategory:'$category.title'
+//     }}
+// ]);
+
+// db.products.aggregate([
+// {
+//     $match: {
+//       price:{$gt:30000}
+//     }
+// },
+// {
+//     $lookup: {
+//                   from: 'categories',
+//                   localField: 'categoryId',
+//                   foreignField: '_id',
+//                   as: 'category'
+//                 }
+// },
+// {
+//     $unwind: '$category'
+// },
+// {
+//     $project: {
+//       _id:0,
+//       title:1,
+//       price:1,
+//       categoryName:'$category.title'
+//     }
+// },
+// {
+//     $sort:{
+//         price:-1
+//     }
+// }
+// ]);
+
+// db.products.find({categoryId: ObjectId('67cf0819f222dc413a45c278')})
+// .sort({price: -1})
+// .limit(1);
+  
+db.products.find({categoryId:ObjectId('67cf0819f222dc413a45c279')})
+.sort({price:1})
+.limit(1);

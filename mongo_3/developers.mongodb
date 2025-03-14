@@ -1,0 +1,45 @@
+use ('mongo_3');
+
+// db.createCollection( 'developers', {
+// validator:{
+// $jsonSchema:{
+//     bsonType: 'object',
+//     required: ['title' , 'country'],
+//     properties:{
+//         title: {
+// bsonType: 'string',
+// minLength: 4,
+// maxLength: 255,
+// description: 'Title should be unique and have from 4 to 250 symbols', 
+//         },
+//         country: {
+// bsonType: 'string',
+// enum: ['Japan' , 'USA', 'Ukraine', 'Poland'],
+// description: 'Country can be one from the list',
+//         },
+//     },
+// },
+// },
+// },
+// );
+
+// db.developers.createIndex(
+// {title: 1},
+// {unique: true},
+// );
+
+// db.developers.insertOne(
+// {
+//     title: 'Software',
+//     country: 'Japan'
+// }
+// );
+
+// db.developers.insertMany([
+//     {title: 'Capcom' , country: 'Japan'},
+//     {title: 'CD rpoject Red', country: 'Poland'},
+//     {title:'Sony' , country: 'USA'},
+// ]
+// );
+
+db.developers.find();

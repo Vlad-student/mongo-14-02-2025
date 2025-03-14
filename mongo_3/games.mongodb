@@ -1,0 +1,50 @@
+use ('mongo_3');
+
+// db.createCollection( 'games' , {
+//     validator: {
+//         $jsonSchema:{
+//             bsonType: 'object',
+//             required: [ 'title' ,'genre', 'releaseYear', 'developerId'],
+//             properties: {
+// title: {
+//     bsonType: 'string',
+// minLength: 4,
+// maxLength: 255,
+// description: 'Title should be unique and have from 4 to 250 symbols',
+// },
+// genre: {
+//     bsonType: 'string',
+//     minLength: 4,
+//     maxLength: 20,
+//     enum: ['RPG', 'open-world', 'sandbox', 'metroidvania'],
+//     description: 'Genre should be one from the list',
+// },
+// releaseYear: {
+//     bsonType: 'int',
+//     minimum: 1970,
+//     maximum: new Date().getFullYear(),
+// },
+// developerId: {
+//     bsonType: 'objectId',
+// },
+//             },
+//         },
+//     },
+// },
+// );
+
+// db.games.createIndex(
+//     {title: 1},
+//     {unique: true},
+// );
+
+// db.games.insertMany([
+// {title:'RDR 2', genre:'open-world', releaseYear:2020 , developerId: ObjectId('67b36104e3cb897f43a73876')},
+// {title:'GTA 5', genre:'open-world', releaseYear:2014 , developerId: ObjectId('67b36104e3cb897f43a73876')},
+// {title:'Max Paine', genre:'sandbox', releaseYear:2018 , developerId: ObjectId('67b36104e3cb897f43a73876')},
+// {title:'The Witcher 3', genre:'sandbox', releaseYear:2015 , developerId: ObjectId('67b36104e3cb897f43a73873')},
+// {title:'Hollow Knight', genre:'metroidvania', releaseYear:2019 , developerId: ObjectId('67b36104e3cb897f43a73875')},
+// ]);
+
+
+

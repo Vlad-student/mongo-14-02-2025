@@ -1,0 +1,37 @@
+use ('mongo_2');
+
+// db.products.aggregate([
+// {
+//     $group: {
+//       _id: '$categoryId',
+//       totalPrice: {
+//         $sum: '$price'
+//       }
+//     }
+// },
+// {
+//     $lookup: {
+//       from: 'categories',
+//       localField: '_id',
+//       foreignField: '_id',
+//       as: 'categories'
+//     }
+// },
+// {
+//     $unwind: '$categories'
+// },
+// {
+//     $project: {
+//         _id:0,
+//         totalPrice: 1,
+//         categoryName:'$categories.title'
+//     }
+// }
+// ]);
+
+db.products.updateMany(
+    {categoryId:ObjectId('67cf0819f222dc413a45c277')},
+    {$inc:{price:-1500}}
+);
+
+ 
