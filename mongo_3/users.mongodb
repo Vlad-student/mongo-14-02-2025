@@ -1,27 +1,34 @@
 use ('mongo_3');
 
-db.createCollection( 'users',
-    {
-        validator:{
-            $jsonSchema: {
-                bsonType: 'object',
-                required: ['login', 'dbYear' , 'isMale' , 'favouriteGames'],
-                properties: {
-                    login: {
-    bsonType: 'string',
-    pattern: '^[a-zA-Z0-9]{3,64}$'
-},
-dbYear: {
-    bsonType: 'int',
-    minimum: 1925,
-    maximum: (new Date().getFullYear() - 12),
-},
-isMale: {
-    bsonType: 'bool'
-}
-                },
-            },
-        },
-    },
-);
+// db.createCollection( 'users',
+//     {
+//         validator:{
+//             $jsonSchema: {
+//                 bsonType: 'object',
+//                 required: ['login', 'dbYear' , 'isMale' , 'favouriteGames'],
+//                 properties: {
+//                     login: {
+//     bsonType: 'string',
+//     pattern: '^[a-zA-Z0-9]{3,64}$'
+// },
+// dbYear: {
+//     bsonType: 'int',
+//     minimum: 1925,
+//     maximum: (new Date().getFullYear() - 12),
+// },
+// isMale: {
+//     bsonType: 'bool'
+// }
+//                 },
+//             },
+//         },
+//     },
+// );
 
+// db.users.insertMany(
+// [
+//     {login:'Tom', dbYear:2007, isMale:true, favouriteGames:['Hollow Knight','Elden Ring']},
+//     {login:'Anna', dbYear:2009, isMale:false, favouriteGames:['God of War','Cyberpunk 2077']},
+//     {login:'Jack', dbYear:2007, isMale:true, favouriteGames:['Ghost of Tsushima','Elden Ring']},
+// ]
+// );
